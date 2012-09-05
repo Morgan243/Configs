@@ -17,7 +17,7 @@ let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
 "turn omnicompletion on (code completion)
-"set ofu=syntaxcomplete#Complete
+set ofu=syntaxcomplete#Complete
 
 "The following sets the cursos color depending on mode
 "However, the cursor currently keeps its color after vim
@@ -44,8 +44,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
+"let the menu show up, select the longest match and give a preview in code
 set completeopt=menu,menuone,longest,preview
-"set completeopt=longest,menuone
 
 "make the enter key select highlighted item in omnicomplete menu
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
