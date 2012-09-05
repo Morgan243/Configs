@@ -1,4 +1,22 @@
+"------------------VIM Runtime Configuration--------------
+"Plugins Installed
+"     [Referenced by this vimrc]
+" 	-Ctags- Scan and mark c/cpp files for variables, functions, etc.
+" 	-OmniCppComplete- Syntax completion using Ctags
+" 	-TagBar- Displays tags in the current file using Ctags
+" 	-Syntastic- checks syntax of c/cpp on save
+" 	-SuperTab- adds a few features to tab with OmniComplete
+" 	-Powerline- Makes the status line mroe readable and better looking
+" 	-Pathogen- Makes it easy to install some plugins
+"     
+"     [Not referenced here, vim wont complain if its missing]	
+"       -Taglist- like tag bar, but shows all open files at once
+"       	  Really great for navigating large projects.
+" 	Dont forget to install some colorschemes
+"
+
 "dont try and be vi compatible
+"many plugins/setting require this
 set nocompatible
 
 "Enable file type detection
@@ -21,7 +39,7 @@ set ofu=syntaxcomplete#Complete
 
 "The following sets the cursos color depending on mode
 "However, the cursor currently keeps its color after vim
-"is exited.
+"is exited. This is a problem.
 if &term =~ "xterm\\|rxvt"
 "" use an orange cursor in insert mode
 let &t_SI = "\<Esc>]12;teal\x7"
@@ -75,7 +93,7 @@ let OmniCpp_NamespaceSearch = 2
 "" show function prototype (i.e.  parameters) in popup window
 let OmniCpp_ShowPrototypeInAbbr = 1 
 
-" -- ctags --
+" ctags
 " map <ctrl>+F12 to generate ctags for current folder:
 map <f12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q --language-force=C++ .<CR>
 
