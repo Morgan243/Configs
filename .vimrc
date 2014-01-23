@@ -19,11 +19,61 @@
 "many plugins/setting require this
 set nocompatible
 
-"Enable file type detection
-"filetype on
+filetype off
 
 "enable filetype based plugins
-"filetype plugin on
+filetype plugin on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'tpope/vim-fugitive'
+
+" Python-mode
+" Activate rope
+" Keys:
+" K             Show python docs
+"   Rope autocomplete
+" g     Rope goto definition
+" d     Rope show documentation
+" f     Rope find occurrences
+" b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[            Jump on previous class or function (normal, visual, operator modes)
+" ]]            Jump on next class or function (normal, visual, operator modes)
+" [M            Jump on previous class or method (normal, visual, operator modes)
+" ]M            Jump on next class or method (normal, visual, operator modes)
+let g:pymode_rope = 0
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = 'b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+
 
 "highlight syntax
 syntax on
@@ -35,9 +85,9 @@ let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
 "turn omnicompletion on (code completion)
-set ofu=syntaxcomplete#Complete
+"set ofu=syntaxcomplete#Complete
 
-set t_Co=256
+"set t_Co=256
 
 "The following sets the cursos color depending on mode
 "However, the cursor currently keeps its color after vim
@@ -107,8 +157,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 "Pathogen makes it easy to modify the
 "runtime path to include all plugins
 "under the ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
 
 "hides buffers instead of closing them
 set hidden
